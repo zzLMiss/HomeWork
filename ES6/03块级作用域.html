@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//var 没有块级作用域
+if(true){
+    var a =10;
+}
+alert(a); //10
+
+(function(){
+    if(true){
+        var a = 10;
+    }
+})();
+alert(a); //10
+/* {
+    var a =20;
+    let b =30;
+    const c =40;
+    alert(b);
+    alert(c);
+    alert(a);
+    function test(){
+        console.log('111'); //111
+    }
+    test(); //30 40 20
+}
+{
+    var a =100;
+    let b =90;
+    const c =99;
+    alert(a);
+    alert(b);
+    alert(c);
+    function test(){
+        console.log('222'); //222
+    }
+    test(); //100 90  99
+}
+alert(a) //100 */
+</script>
