@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	/*ES6 提供三个新的方法——entries()，keys()和values()——用于遍历数组。
+	它们都返回一个遍历器对象，可以用for...of循环进行遍历，
+	唯一的区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。*/
+	let arr = ["张三","李四","王五","马六"];
+	for(let [index,value] of arr.entries()){
+		console.log(index,value);//0 "张三"  1 "李四"  2 "王五"  3 "马六
+	}
+	
+	for (let index of arr.keys()) {
+	  console.log(index); //0 1 2 3
+	}
+	
+	for (let elem of arr.values()) {
+	  console.log(elem);//张三   李四   王五  马六
+	}
+	
+</script>

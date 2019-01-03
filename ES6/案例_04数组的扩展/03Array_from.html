@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>99</p>
+	    <p>101</p>
+	    <p>102</p>
+	    <p>103</p>
+	    <p>104</p>
+	    <p>105</p>
+	    <p>106</p>
+	    <p>107</p>
+	    <p>108</p>
+	    <p>109</p>
+	    <p>1010</p>
+	</body>
+</html>
+<script type="text/javascript">
+	//Array.from方法用于将两类对象转为真正的数组
+	let oli = document.querySelectorAll("p");
+	let arr = Array.from(oli,function(item){
+		return item.textContent;
+	}); //转数组
+	let result = arr.reduce(function(emy,item,index){ //reduce（）汇总
+		return Number.parseFloat(emy) + Number.parseFloat(item);
+	})
+	console.log(result); //总和：2054 
+</script>

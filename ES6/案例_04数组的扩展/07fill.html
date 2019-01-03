@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	//fill方法使用给定值，填充一个数组。
+	//fill方法用于空数组的初始化非常方便。数组中已有的元素，会被全部抹去。
+	//fill方法从 1 号位开始，向原数组填充 7，到 3号位之前结束。
+	//注意，如果填充的类型为对象，那么被赋值的是同一个内存地址的对象，而不是深拷贝对象。
+	let arr = [1,2,3,4];
+	let result = arr.fill("7",1,3);
+	console.log(result);  //0: 1    1: "7"     2: "7"    3: 4
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	   
+	</body>
+</html>
+<script type="text/javascript">
+	// reduce  汇总 
+	/*三个参数  
+		它是上一次调用回调时返回的结果，每次调用的结果都会给prevemp   
+		当前的元素item   
+		当前的索引index*/
+	let arr = [12,45,235,8000];
+	let result = arr.reduce(function(emp,item,index){
+		//12 45 1
+        // undefined 235 2
+        // undefined 8000 3
+        // 57 + 235 = 292
+        // 292 + 8000
+		console.log(emp); //12
+		return emp + item;
+	})
+	console.log(result); // 57   292   8292
+	
+	//简化  let result = arr.reduce((emp,item,index) =>emp + item);
+</script>

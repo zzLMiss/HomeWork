@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	//过滤
+	let arr = [12,34,56,78,90];
+	let result = arr.filter(function(item){
+		alert(item % 3 == 0); //true false false true true
+		if(item%3 == 0){
+			return true;
+		}else{
+			return false;
+		}
+	})
+	console.log(result);//0: 12   1: 78    2: 90
+	
+	//简化写法
+	let arr02 = [12,34,56,78,90];
+
+    let result02 = arr02.filter(item => item%3 ==0);
+    console.log(result02)
+</script>

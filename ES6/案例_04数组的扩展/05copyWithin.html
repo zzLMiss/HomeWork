@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	//数组实例的copyWithin方法，在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组。
+	//接受三个参数。这三个参数都应该是数值，如果不是，会自动转为数值。
+		/*target（必需）：从该位置开始替换数据。如果为负值，表示倒数。
+		start（可选）：从该位置开始读取数据，默认为 0。如果为负值，表示倒数。
+		end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数。*/	
+	let arr = [1,2,3,4,5];
+	let result = arr.copyWithin(0,3,5);
+	console.log(result);//Array(5)   0: 4   1: 5  2: 3  3: 4  4: 5
+</script>

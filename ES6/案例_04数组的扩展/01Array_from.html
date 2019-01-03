@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//Array.from方法用于将两类对象转为真正的数组
+	let obj ={
+		"name" : "jack",
+		"age" : 28,
+		"lice" :30
+	}
+	let arr = Array.from(obj); 
+	console.log(arr); //[]
+	
+	let obj02 = {
+		"0" : "jack",
+		"1" : 28,
+		"2" : 30
+	}
+	let arr02 = Array.from(obj02);
+	console.log(arr02); //(3) [28, "jack", 30]
+</script>

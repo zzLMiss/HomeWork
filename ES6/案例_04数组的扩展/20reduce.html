@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	   <ul>
+	        <li>231</li>
+	        <li>232</li>
+	        <li>233</li>
+	        <li>234</li>
+	        <li>235</li>
+	        <li>236</li>
+	        <li>237</li>
+	        <li>238</li>
+	        <li>239</li>
+	        <li>2310</li>
+	    </ul>
+	</body>
+</html>
+<script type="text/javascript">
+	//求平均数
+	let aLi = document.getElementsByTagName("li");
+    let result = 0;
+    for(let i=0;i<aLi.length;i++){
+        result += Number.parseFloat(aLi[i].innerHTML);
+    }
+    console.log(result/aLi.length)
+    
+    //求和
+	let aLi = document.getElementsByTagName("li");
+    let result = 0;
+    for(let i=0;i<aLi.length;i++){
+        result += Number.parseFloat(aLi[i].innerHTML);
+    }
+    console.log(result);
+    
+    
+    //求平均数和总数
+	let oli =document.getElementsByTagName('li');
+	let arr =[];
+	for(let i =0;i<oli.length;i++){
+		arr.push(Number.parseFloat(oli[i].innerHTML)); //尾推
+	}
+	let result = arr.reduce(function(emp,item,index){ //reduce  汇总
+		if(index != arr.length-1){
+			return emp + item;  //总数
+		}else{
+			return (emp + item)/arr.length;  
+			                      /*平均数*/
+		}
+	})
+	console.log(result);
+</script>

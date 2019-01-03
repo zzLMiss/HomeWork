@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	
+	</body>
+</html>
+<script type="text/javascript">
+  //JSON.stringify()    将object解析为字符串
+	let obj = '{"name" : "jack","age" : 20,"love" : "唱歌"}';
+	let obj1 = JSON.stringify(obj);
+	console.log(typeof obj);  //string
+	let url = "https://www.es6.com/?" + encodeURIComponent(obj); //加密处理方法
+	console.log(url);
+</script>

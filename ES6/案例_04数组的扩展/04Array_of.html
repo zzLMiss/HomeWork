@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	//Array.of方法用于将一组值，转换为数组
+	//Array方法没有参数,返回一个空数组。
+	//只有当参数个数不少于 2 个时，Array()才会返回由参数组成的新数组。
+	//参数个数只有一个时，实际上是指定数组的长度。
+	let arr = Array(3);
+	console.log(arr); //Array(3) 数组的长度。
+	
+	let arr1 = Array.of(11,22,33);
+	console.log(arr1);//[11, 22, 33]
+	
+	let arr2 = Array.of("11","22","33");
+	console.log(arr2);//["11", "22", "33"]
+	
+	let quest = prompt();//输入弹框
+	let arr3 = Array.of(quest);
+	console.log(arr3);//输入什么输出什么
+</script>

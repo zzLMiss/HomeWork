@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		 <style>
+	        #box{
+	            width:200px;
+	            height:200px;
+	            border:2px solid #ccc;
+	        }
+	    </style>
+	</head>
+	<body>
+	    <div id='box'></div>
+	</body>
+</html>
+<script type="text/javascript">
+	 //map     映射   一个对一个
+  	let quest = prompt();
+  	let arr = quest.split(",");
+  	let result = arr.map(item =>{
+  		return item = item>=60 ? box.style.background = 'red' : box.style.background = 'yellow';
+  	})
+  	console.log(arr,result);
+</script>
