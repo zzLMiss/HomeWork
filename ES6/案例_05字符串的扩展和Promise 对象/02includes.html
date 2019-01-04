@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li{
+            width:150px;
+            height:150px;
+            border:1px solid #ccc;
+            float:left;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+   <ul>
+        <li>我</li>
+        <li>想</li>
+        <li>好</li>
+        <li>学</li>
+        <li>习</li>
+    </ul>
+</body>
+</html>
+<script type="text/javascript">
+	//includes()：返回布尔值，表示是否找到了参数字符串。
+	let str = "我想好好学习";
+	let oli =document.querySelectorAll("li");
+	let result = Array.from(oli,function(item){ //遍历了Li
+		return item;
+	})
+	
+	let obj = result.filter(function(item){
+		if(str.includes("好") && item.textContent == "好"){
+			item.style.background = "red";
+		}
+	})
+	
+	
+</script>

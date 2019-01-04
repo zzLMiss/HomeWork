@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。
+	padStart()用于头部补全，padEnd()用于尾部补全。
+	接受两个参数，第一个参数是字符串补全生效的最大长度，第二个参数是用来补全的字符串。*/
+	let str = "hello";
+	let result = str.padEnd(9,"1234");
+	console.log(result);
+	
+	let a = 'hello';
+	let result2 = str.padStart(9,'12345');
+	console.log(result2);
+</script>

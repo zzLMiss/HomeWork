@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	//Promise 是一个对象，从它可以获取异步操作的消息。
+	//Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。
+	let result = new Promise(function(resolve,reject){
+		$.ajax({
+			url:"https://resources.ninghao.net/wxapp-case/db.json",
+			success:function(response){
+				resolve(response);
+			},
+			error:function(err){
+				reject(err);
+			}
+		});
+	})
+	//then方法可以接受两个回调函数作为参数。
+	//第一个回调函数是Promise对象的状态变为resolved时调用
+	//第二个回调函数是Promise对象的状态变为rejected时调用。
+	result.then(function(response){  //then()可以同时调多条数据
+		console.log("成功了");
+	},function(err){
+		console.log("失败了")
+	})
+</script>

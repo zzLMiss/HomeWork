@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+	        html,body,div,h3,p{margin:0; padding:0;}
+	        div{
+	            width:300px;
+	            border:2px solid #ccc;
+	            margin:100px auto;
+	            height:300px;
+	        }
+	    </style>
+	</head>
+	<body>
+		<input type="button" value="发表" id="btn">
+		<div id="box">
+		
+		
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	{
+		var a = "item1";
+		var b = "item2";
+		btn.onclick = function(){
+			box.innerHTML ="<ul>\
+				<li> "+a+" </li>\
+				<li> "+b+" </li>\
+			</ul>";
+			
+			//转义写法
+			/*box.innerHTML = `
+                <ul>
+                    <li>${a}</li>
+                    <li>${b}</li>
+                </ul>
+            `*/
+		}
+	}
+	
+</script>
