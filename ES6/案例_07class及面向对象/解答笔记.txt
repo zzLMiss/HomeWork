@@ -1,0 +1,136 @@
+1.什么是作用域链？什么是原型链？
+
+　　作用域：是针对变量的，比如我们创建了一个函数，函数里面又包含了一个函数，那么现在就有三个作用域
+
+　　	   全局作用域==>函数1作用域==>函数2作用域
+
+      	   作用域的特点就是，先在自己的变量范围中查找，如果找不到，就会沿着作用域往上找。
+
+      原型链：是针对构造函数的，比如我先创建了一个函数，然后通过一个变量new了这个函数，那么这个被new出来的函数就会继承创	   建出来的那个函数的属性，然后如果我访问new出来的这个函数的某个属性，但是我并没有在这个new出来的函数中定义这	   个变量，那么它就会往上（向创建出它的函数中）查找，这个查找的过程就叫做原型链。
+
+　　	   Object ==> 构造函数1 ==> 构造函数2
+
+　　            就和css中的继承一样，如果自身没有定义就会继承父元素的样式。
+
+	   function a(){};
+	   a.prototype.name = "追梦子";
+	   var b = new a();
+	   console.log(b.name); //追梦子
+
+2.继承有哪几种方式?分别是什么?
+	01.原型链继承：这种继承方式很直接，为了获取Person的所有属性方法(实例上的和原型上的)，直接将父类的实例new 		        Person('pursue')赋给了子类的原型，其实子类的实例man1,man2本身是一个完全空的对象，所有的		       		        属性和方法都得去原型链上去找，因而找到的属性方法都是同一个。 
+所以直接利用原型链继承是不现实的。
+	function Person (name, age) {
+    
+	    this.name = name;
+    
+ 	    this.age = age;
+	
+}
+
+	Person.prototype.say = function(){
+    
+	    console.log('hello, my name is ' + this.name);
+	
+};
+
+	function Man() {
+}
+	
+Man.prototype = new Person('pursue');
+	
+var man1 = new Man();
+man1.say(); //hello, my name is pursue
+	
+var man2 = new Man();
+console.log(man1.say === man2.say);//true
+
+	console.log(man1.name === man2.name);//true
+
+	02.利用构造函数继承:这里子类的在构造函数里利用了apply去调用父类的构造函数，从而达到继承父类属性的效果，比直接				利用原型链要好的多，至少每个实例都有自己那一份资源，但是这种办法只能继承父类的实例属性，因而找不到				say方法，为了继承父类所有的属性和方法，则就要修改原型链，从而引入了组合继承方式。
+	function Person (name, age) {
+    
+	    this.name = name;
+    
+	    this.age = age;
+	
+}
+	
+Person.prototype.say = function(){
+    
+	    console.log('hello, my name is ' + this.name);
+
+	};
+
+	function Man(name, age) {
+    
+	    Person.apply(this, arguments);
+	
+}
+
+	//Man.prototype = new Person('pursue');
+	
+var man1 = new Man('joe');
+
+	var man2 = new Man('david');
+console.log(man1.name === man2.name);//false
+
+	man1.say(); //say is not a function
+
+	03.组合继承
+	04.寄生组合继承
+
+3.什么是面向对象？
+ 	javascript中的面向对象：
+	    ECMA标准定义JS中的对象：无序属性的集合，其属性可以包含基本值、对象或者函数。
+	    可以简单理解为JS的对象是一组无序的值，其中的属性或方法都有一个名字，根据这个名字可以访问相映射的值
+	  （值可以是基本值/对象/方法）。（即：在js中的对象是以“属性/方法：值”组合而成的无序集合）。
+   js创建对象一般用两种方法：
+    （1）基于Object对象   （2）基于对象字面量表达式
+
+4.javascript中对象的assign()方法：
+
+	Object.assign()?方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+	
+
+语法：
+
+Object.assign(target,...sources)
+
+
+	参数：
+
+target：新对象，用来接受的对象
+
+sources：源对象。
+	
+
+返回值：
+
+目标对象，新对象。
+
+5.apply()与call()的区别：
+	JavaScript中的每一个Function对象都有一个apply()方法和一个call()方法，它们的语法分别为：
+
+	/*apply()方法*/
+	function.apply(thisObj[, argArray])
+
+	/*call()方法*/
+	function.call(thisObj[, arg1[, arg2[, [,...argN]]]]);
+    定义：
+       apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。
+       call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。
+
+    共同之处：
+       都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由thisObj指定的新对象”。
+
+    不同之处：
+          apply：最多只能有两个参数——新this对象和一个数组argArray。如果给该方法传递多个参数，则把参数都写进这个数组里面，    当然，即使只有一个参数，也要写进数组里。如果argArray不是一个有效的数组或arguments对象，那么将导致一个TypeError。如    果没有提供argArray和thisObj任何一个参数，那么Global对象将被用作thisObj，并且无法被传递任何参数。
+
+          call：它可以接受多个参数，第一个参数与apply一样，后面则是一串参数列表。这个方法主要用在js对象各方法相互调用的时候，    使当前this实例指针保持一致，或者在特殊情况下需要改变this指针。如果没有提供thisObj参数，那么 Global 对象被用作thisObj。 
+
+    实际上，apply和call的功能是一样的，只是传入的参数列表形式不同。
+
+
+
+
